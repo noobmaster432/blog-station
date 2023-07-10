@@ -1,0 +1,25 @@
+<%= form_for blog_post do |f| %>
+  <% if f.object.errors.any? %>
+      <div id="error_explanation">
+          <% f.object.errors.full_messages.each do |msg| %>
+              <%= msg %>
+          <% end %>
+      </div>
+  <% end %>
+  <div class="space-y-4 md:space-y-6">
+    <div>
+      <%= f.label :title, class:"block mb-2 text-sm font-medium text-gray-900" %>
+      <%= f.text_field :title, autofocus: true, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5" %>
+    </div>
+    <div>
+      <%= f.label :body, class:"block mb-2 text-sm font-medium text-gray-900" %>
+      <%= f.text_area :body, class:"bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-500 block w-full p-2.5" %>
+    </div>
+    <div class="actions">
+      <%= f.submit class:"w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>
+    </div>
+    <div class="text-center">
+      <%= link_to "Back", :back, class:"font-medium text-blue-600 hover:underline text-sm" %>
+    </div>
+  </div>
+<% end %>
